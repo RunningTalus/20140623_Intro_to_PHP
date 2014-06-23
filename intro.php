@@ -1,7 +1,8 @@
 <html>
 <body>
 <?php
-	
+	//#60: A Quick PHP Introduction from MapScripting 101
+
 	//1
 	
 	// print "This text comes from PHP!";
@@ -97,21 +98,55 @@
 	// quadruple(4);
 	
 
+	//#61: Retrieve a Web Page
+	
 	// 10
 	
-	$allnums = array(4, 18, 21);
-	foreach ($allnums as $thisnum) {
-		$quadnum = quadruple($thisnum);
-		print $thisnum . " quadrupled is " . $quadnum . "! ";
-	}
+	// $allnums = array(4, 18, 21);
+	// foreach ($allnums as $thisnum) {
+	// 	$quadnum = quadruple($thisnum);
+	// 	print $thisnum . " quadrupled is " . $quadnum . "! ";
+	// }
 
-	function quadruple ($somenum){
-		$newnum = $somenum * 4;
-		return $newnum;
-	}
+	// function quadruple ($somenum){
+	// 	$newnum = $somenum * 4;
+	// 	return $newnum;
+	// }
 
 	//prints 4 quadrupled is 16! 18 quadrupled is 72! 21 quadrupled is 84!
+	
+	
+	//11
 
+	//Retrieve a webpage
+		//using cUrl
+	
+	// $htmlcode = get_url ("http://mapscripting.com");
+	// print $htmlcode;
+	
+	// function get_url($url) {
+	// 	$c = curl_init();  //initialize cUrl
+	// 	curl_setopt($c, CURLOPT_URL, $url);
+	// 	curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
+	// 	$content = trim(curl_exec($c));
+	// 	curl_close($c);
+	// 	return $content;
+	// }
+
+	//loads the mapscripting.com website html (no CSS).
+
+	//added commented out get_url function above to /net_func.inc.php
+	
+
+	//12
+	
+	// include("net_func.inc.php");
+	// $htmlcode = get_url("http://www.fifa.com");
+	// print $htmlcode;
+	
+
+	//#62: Install MySQL
+	
 
 ?>
 </body>
