@@ -147,7 +147,35 @@
 
 	//#62: Install MySQL
 	
+	// navigate to: http://localhost/phpMyAdmin/
+	
 
-?>
+	//#63: Store Locations to a Database
+	//#64: Import Data from a Spreadsheet
+	//#65: Use MySQL from PHP
+	
+	// $db = mysql_connect('localhost', 'root', 'root');
+	// mysql_select_db('mapscripting', $db);
+	// $sql = "select label from places";
+	// $res = mysql_query($sql, $db);
+	// while ($row = mysql_fetch_assoc($res)) {
+	// 	print $row["label"];
+	// 	echo "<br>";
+	// }
+	// mysql_close($db);
+	
+	//
+
+	$db = mysql_connect('localhost', 'root', 'root');
+	mysql_select_db('mapscripting', $db);
+	
+	$sql = "INSERT into places (label, latitude, longitude) VALUES ('Boulder Colorado', 40.0176, -105.2797)";
+		mysql_select_db('mapscripting', $db);
+		$res1 = mysql_query($sql, $db);
+
+		if ( ! $res1) {
+			echo 'Unable to save to the DB';
+		}
+	?>
 </body>
 </html>
