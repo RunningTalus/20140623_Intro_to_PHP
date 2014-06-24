@@ -166,16 +166,30 @@
 	
 	//
 
+	// $db = mysql_connect('localhost', 'root', 'root');
+	// mysql_select_db('mapscripting', $db);
+	
+	// $sql = "INSERT into places (label, latitude, longitude) VALUES ('Boulder Colorado', 40.0176, -105.2797)";
+	// 	mysql_select_db('mapscripting', $db);
+	// 	$res1 = mysql_query($sql, $db);
+
+	// 	if ( ! $res1) {
+	// 		echo 'Unable to save to the DB';
+	// 	}
+	
+	//
+	
 	$db = mysql_connect('localhost', 'root', 'root');
 	mysql_select_db('mapscripting', $db);
-	
-	$sql = "INSERT into places (label, latitude, longitude) VALUES ('Boulder Colorado', 40.0176, -105.2797)";
-		mysql_select_db('mapscripting', $db);
-		$res1 = mysql_query($sql, $db);
+	$sql = 'select label, latitude, longitude from places';
+	$res = mysql_query($sql, $db);
+	$allrows = array();
+	while ($row = mysql_fetch_assoc($res)) {
+		array_push($allrows, $row);
+	}
 
-		if ( ! $res1) {
-			echo 'Unable to save to the DB';
-		}
-	?>
+	// mysql_close($db)
+	print json_encode($allrows);
+?>
 </body>
 </html>
